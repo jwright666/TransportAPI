@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using FM.FMSystem.BLL;
+using FM.TransportBook.DAL;
+
+namespace FM.TransportBook.BLL
+{
+    public abstract class VehicleJob
+    {
+        public int JobID{ get; set; }
+        public string JobNo{ get; set; }
+        public string CustNo{ get; set; }
+        public string JobType{ get; set; }
+        public DateTime JobDateTime{ get; set; }
+        public string QuotationNo{ get; set; }
+        public string SourceReference{ get; set; }
+        public JobStatus JobStatus{ get; set; }
+        public string BranchCode{ get; set; }
+        public bool IsNew{ get; set; }
+        public JobUrgencyType JobUrgencyType{ get; set; }
+        public bool BillByTransport{ get; set; }
+        public string TptDeptCode{ get; set; }
+        public string OldTptDeptCode{ get; set; }
+        public bool IsBillable{ get; set; }
+        public string JobCreatorId { get; set; }
+        public DateTime JobCreatedDateTime { get; set; }
+        public bool IsFlexibleTime { get; set; }
+        public string LastModified_By { get; set; }
+        public DateTime LastModifiedDateTime { get; set; }
+        public byte[] UpdateVersion;
+
+
+        public VehicleJob()
+        {
+            this.JobID = 0;
+            this.JobNo = "";
+            this.CustNo = "";
+            this.SourceReference = "";
+            this.JobStatus = JobStatus.Booked;
+            this.JobType = "";
+            this.JobDateTime = DateTime.Now;
+            this.BranchCode = "";
+            this.QuotationNo = "";
+            this.IsNew = true;
+            this.JobUrgencyType = JobUrgencyType.Normal;
+            this.BillByTransport = true;
+            this.TptDeptCode = "";
+            this.OldTptDeptCode = "";
+            this.IsBillable = true;
+            this.JobCreatorId = string.Empty;
+            this.JobCreatedDateTime = DateTime.Now;
+            this.IsFlexibleTime = true;
+            this.LastModified_By = string.Empty;
+            this.LastModifiedDateTime = DateUtility.GetSQLDateTimeMinimumValue();
+            this.UpdateVersion = new byte[8]; 
+        }
+
+        public VehicleJob(int jobID, string jobNo, string custNo, string sourceReference,
+            JobStatus jobStatus, string jobType, string bookingNo, DateTime bookingDate,
+            string branchCode, byte[] updateVersion, bool isNew, string quotationNo,
+            JobUrgencyType jobUrgencyType, bool billByTransport, string tptDeptCode, string oldTptDeptCode,
+            bool isBillable)
+        {
+            this.JobID = jobID;
+            this.SourceReferenceNo = sourceReference;
+            this.JobNo = jobNo;
+            this.JobStatus = jobStatus;
+            this.BranchCode = branchCode;
+            this.UpdateVersion = updateVersion;
+            this.IsNew = isNew;
+            this.QuotationNo = quotationNo;
+            this.jobUrgencyType = jobUrgencyType;
+            this.BillByTransport = billByTransport;
+            this.TptDeptCode = tptDeptCode;
+            this.OldTptDeptCode = oldTptDeptCode;
+            this.IsBillable = isBillable;
+            this.JobCreatorId = string.Empty;
+            this.JobCreatedDateTime = DateTime.Now;
+            this.IsFlexibleTime = true;
+            this.LastModified_By = string.Empty;
+            this.LastModifiedDateTime = DateUtility.GetSQLDateTimeMinimumValue();
+        }            
+    }
+}
