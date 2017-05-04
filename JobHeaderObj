@@ -13,6 +13,24 @@ namespace FM.TransportBook.BLL
         public string CustNo{ get; set; }
         public string JobType{ get; set; }
         public DateTime JobDateTime{ get; set; }
+        public string shipperCode { get; set; }
+        public string shipperName { get; set; }
+        public string shipperAdd1 { get; set; }
+        public string shipperAdd2 { get; set; }
+        public string shipperAdd3 { get; set; }
+        public string shipperAdd4 { get; set; }
+        public string consigneeCode { get; set; }
+        public string consigneeName { get; set; }
+        public string consigneeAdd1 { get; set; }
+        public string consigneeAdd2 { get; set; }
+        public string consigneeAdd3 { get; set; }
+        public string consigneeAdd4 { get; set; }
+        public string subcontractorCode { get; set; }
+        public string subcontractorName { get; set; }
+        public string subcontractorAdd1 { get; set; }
+        public string subcontractorAdd2 { get; set; }
+        public string subcontractorAdd3 { get; set; }
+        public string subcontractorAdd4 { get; set; }
         public string QuotationNo{ get; set; }
         public string SourceReference{ get; set; }
         public JobStatus JobStatus{ get; set; }
